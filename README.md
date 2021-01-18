@@ -43,9 +43,9 @@ Slack hook to post notifications to
 ## Example usage
 
 ```yaml
-- uses: actions/rancher-deploy-action@v0.1.0
+- uses: redturtle/rancher-deploy-action@v0.1.0
   with:
-    host: 'https://rancher.example.com/v3
+    host: 'https://rancher.example.com/v3'
     api-username: 'xxxxxxxxxxxxxxx'
     api-password: 'xxxxxxxxxxxxxxx'
     cluster-id: 'c-xxxxx'
