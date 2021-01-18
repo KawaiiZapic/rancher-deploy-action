@@ -1,0 +1,37 @@
+name: 'Rancher Deploy Action'
+description: 'Deploys a new image to a k8s deployment using Rancher v2 API'
+inputs:
+  host:  # id of input
+    description: 'Rancher server host'
+    required: true
+  api-username:
+    description: 'Rancher API username'
+    required: true
+  api-password:
+    description: 'Rancher API password'
+    required: true
+  cluster-id:
+    description: 'Target cluster id'
+    required: true
+  project-id:
+    description: 'Target Project id'
+    required: true
+  namespace:
+    description: 'Target namespace'
+    required: true
+    default: 'default'
+  workload:
+    description: 'Target workload name'
+    required: true
+  image:
+    description: 'Image to be deployed'
+    required: true
+  slack-hook-url:
+    description: 'Slack hook to post notifications to'
+    required: false
+#outputs:
+  #time: # id of output
+    #description: 'The time we greeted you'
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
