@@ -27,7 +27,7 @@ ${api}
 process.on('unhandledRejection', error => {
   if (slackHookUrl) {
     axios.post(slackHookUrl, {
-      text: `Oh no, il deployment di ${image} si è rotto!\n<${jobUrl}|Clicca qui> per vedere il log.`,
+      text: `Oh no, il deployment di ${image} nel namespace ${namespace} si è rotto!\n<${jobUrl}|Clicca qui> per vedere il log.`,
     });
   }
   core.setFailed(error.message);
@@ -49,7 +49,7 @@ process.on('unhandledRejection', error => {
     data: { actions, containers, links },
   } = await axios.get(api, config);
   console.log('Got containers info...');
-  console.log(containers);
+  // console.log(containers);
 
   let needsRedeploy = false;
   const newContainers = containers.map(cont => {
@@ -79,7 +79,7 @@ process.on('unhandledRejection', error => {
   if (slackHookUrl) {
     console.log(`Logging deployment to ${slackHookUrl}`);
     axios.post(slackHookUrl, {
-      text: `Il deployment di ${image} è stato completato con successo! 🎉`,
+      text: `Il deployment di ${image} nel namespace ${namespace} è stato completato con successo! 🎉`,
     });
   }
 })();
