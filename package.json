@@ -1,6 +1,6 @@
 {
   "name": "rancher-deploy-action",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Rancher Deploy Action",
   "main": "index.js",
   "repository": "https://github.com/redturtle/rancher-deploy-action",
