@@ -1,4 +1,4 @@
-name: 'Rancher Deploy Action'
+name: 'Rancher v2 Deploy Action'
 description: 'Deploys a new image to a k8s deployment using Rancher v2 API'
 inputs:
   host:  # id of input
