@@ -36,6 +36,10 @@ Deploys a new image to a k8s deployment using Rancher v2 API
 
 **Required** Image to be deployed
 
+### `container`
+
+Container to be updated, use the first one if not specificated
+
 ### `slack-hook-url`
 
 Slack hook to post notifications to
@@ -43,7 +47,7 @@ Slack hook to post notifications to
 ## Example usage
 
 ```yaml
-- uses: redturtle/rancher-deploy-action@v0.1.0
+- uses: KawaiiZapic/rancher-deploy-action@v1
   with:
     host: 'https://rancher.example.com/v3'
     api-username: 'xxxxxxxxxxxxxxx'
@@ -53,6 +57,7 @@ Slack hook to post notifications to
     namespace: 'my-namespace'
     workload: 'my-workload'
     image: 'my-image:latest'
+    container: 'container-0'
     slack-hook-url: 'https:my-slack-hook-url'
 ```
 
