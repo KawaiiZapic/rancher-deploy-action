@@ -54,8 +54,8 @@ process.on('unhandledRejection', error => {
 
   let needsRedeploy = false;
   const newContainers = containers.map((cont, index) => {
-    if ((!containerId && index !== 0) || containerId !== cout.name) {
-      return cout;
+    if ((!containerId && index !== 0) || containerId !== cont.name) {
+      return cont;
     }
     if (cont.image === image) {
       // images are equal when using the 'latest' tag, e.g. in staging
