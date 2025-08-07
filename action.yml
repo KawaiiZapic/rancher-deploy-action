@@ -26,6 +26,9 @@ inputs:
   image:
     description: 'Image to be deployed'
     required: true
+  container:
+    description: 'Container to be updated, update the first container if not specificated'
+    required: false
   slack-hook-url:
     description: 'Slack hook to post notifications to'
     required: false

@@ -10,6 +10,7 @@ const project = core.getInput('project-id');
 const namespace = core.getInput('namespace');
 const workload = core.getInput('workload');
 const image = core.getInput('image');
+const containerId = core.getInput('container');
 const slackHookUrl = core.getInput('slack-hook-url');
 
 const githubRepo = process.env.GITHUB_REPOSITORY;
@@ -52,7 +53,10 @@ process.on('unhandledRejection', error => {
   // console.log(containers);
 
   let needsRedeploy = false;
-  const newContainers = containers.map(cont => {
+  const newContainers = containers.map((cont, index) => {
+    if ((!containerId && index !== 0) || containerId !== cout.name) {
+      return cout;
+    }
     if (cont.image === image) {
       // images are equal when using the 'latest' tag, e.g. in staging
       needsRedeploy = true;
